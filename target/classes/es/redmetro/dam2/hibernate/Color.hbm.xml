@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="es.redmetro.dam2.vo.Color" table="T_COLOR">
+        <id name="codigoColor" type="java.lang.Integer" column="cod_color">
+            <generator class="increment" />
+        </id>
+
+        <property name="nombre" column="nombre" type="java.lang.String"/>
+        <property name="codigoHexadecimal" column="cod_hexadecimal" type="java.lang.String"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="es.redmetro.dam2.vo.Estacion" table="T_ESTACION">
+        <id name="codigoEstacion" column="cod_estacion" type="java.lang.Integer">
+            <generator class="increment" />
+        </id>
+        
+
+        <property name="nombre" column="nombre" type="java.lang.String"/>
+        <property name="direccion" column="direccion" type="java.lang.String"/>
+        <set name="lineaEstacion" table="T_LINEA_ESTACION" cascade="all" inverse="false">
+	        <key column="cod_estacion"/>
+	        
+	        <many-to-many entity-name="es.redmetro.dam2.vo.Linea">
+	        	<column name="cod_linea"></column>
+	        </many-to-many>
+    	</set>
+    </class>
+</hibernate-mapping>

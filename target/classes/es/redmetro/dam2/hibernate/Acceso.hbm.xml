@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="es.redmetro.dam2.vo.Acceso" table="T_ACCESO">
+        <id name="codigoAcceso" type="java.lang.Integer" column="cod_acceso">
+            <generator class="identity" />
+        </id>
+		
+        <property name="nombre" column="nombre" type="java.lang.String"/>
+        <property name="tieneAccesoDiscapacidad" column="acceso_discapacidad" type="java.lang.Integer"/>
+        <many-to-one class="es.redmetro.dam2.vo.Estacion" name="Estacion" column="cod_estacion" cascade="save-update" />
+    </class>
+</hibernate-mapping>

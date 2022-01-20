@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Dialecto SQL  -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MariaDBDialect</property>
+
+        <!-- Database Connection Settings -->
+        <property name="hibernate.connection.driver_class">org.mariadb.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mariadb://localhost:3306/red_metro_prueba</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
+        
+        <!-- Muestra la salida de las consultas SQL en consola -->
+        <property name="hibernate.show_sql">true</property>
+                
+        <property name="hibernate.connection.assureReadOnly">true</property>
+        <property name="hibernate.connection.autoReconnect">true</property>
+        <property name="hibernate.connection.autocommit">false</property>
+        <property name="hibernate.connection.maxPoolSize">5</property> 
+        <property name="hibernate.connection.minPoolSize">2</property> 
+        <property name="hibernate.connection.poolName">MyConnectionPool</property> 
+        <property name="hibernate.connection.pool">true</property> 
+        <property name="hibernate.connection.maxIdleTime">7000</property>
+        <property name="show_sql">true</property>
+    	<property name="format_sql">true</property>
+   		<property name="use_sql_comments">true</property>
+
+        <!-- Specifying Session Context -->
+        <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+        
+        <!--  Configuracion de Hibernate para que se generen tablas en la base de datos -->
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        
+        
+        <!-- Mapping With Model Class Containing Annotations --> 
+        <mapping class="es.redmetro.dam2.vo.Cochera"/>
+        <mapping class="es.redmetro.dam2.vo.Color"/>
+		<mapping class="es.redmetro.dam2.vo.Linea"/>
+        <mapping class="es.redmetro.dam2.vo.Estacion"/>
+        <mapping class="es.redmetro.dam2.vo.Acceso"/>
+        <mapping class="es.redmetro.dam2.vo.Tren"/>
+        <mapping class="es.redmetro.dam2.vo.LineaEstacion"/>
+
+    </session-factory>
+ </hibernate-configuration>

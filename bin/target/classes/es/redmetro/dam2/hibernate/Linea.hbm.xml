@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="es.redmetro.dam2.vo.Linea" table="T_LINEA">
+        <id name="codigoLinea" type="java.lang.Integer" column="cod_linea">
+            <generator class="identity" />
+        </id>
+
+        <property name="nombreCorto" column="nombre_corto" type="java.lang.String"/>
+        <property name="nombreLargo" column="nombre_largo" type="java.lang.String"/>
+        <property name="kilometros" column="kilometros" type="java.lang.Float"/>
+        <many-to-one name="color" column="cod_color" unique="true" not-null="true"/>
+        <set name="estaciones" table="T_LINEA_ESTACION">
+	        <key column="cod_linea"/>
+	        <many-to-many column="cod_estacion"
+	            class="es.redmetro.dam2.vo.Estacion"/>
+    	</set>
+    </class>
+</hibernate-mapping>

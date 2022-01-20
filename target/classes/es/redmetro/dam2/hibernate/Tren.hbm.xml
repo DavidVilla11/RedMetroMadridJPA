@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="es.redmetro.dam2.vo.Tren" table="T_TREN">
+        <id name="codigoTren" type="java.lang.Integer" column="cod_tren">
+            <generator class="increment" />
+        </id>
+
+        <property name="modelo" column="modelo" type="java.lang.String"/>
+        <property name="empresaConstructora" column="empresa_constructora" type="java.lang.String"/>
+        <many-to-one class="es.redmetro.dam2.vo.Cochera" name="cochera" column="cod_cochera" unique="true" not-null="true"/>
+        <many-to-one class="es.redmetro.dam2.vo.Linea" name="linea" column="cod_linea" unique="true" not-null="true"/>
+    </class>
+</hibernate-mapping>
